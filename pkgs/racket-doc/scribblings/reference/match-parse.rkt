@@ -3,7 +3,8 @@
          scribble/basic
          scribble/struct
          scribble/manual
-         (for-label racket/base))
+         (for-label racket/base
+                    racket/match))
 
 (provide parse-match-grammar)
 
@@ -81,6 +82,8 @@
       [(..K)
        (make-element #f (list (make-element symbol-color '(".."))
                               (match-nonterm "k")))]
+      [(==)       (racket ==)]
+      [(STRUCT*)  (racket struct*)]
       [else
        s])]
    [else s]))
